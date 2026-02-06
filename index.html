@@ -1,76 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Orion weather</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Orion Weather – Prévisions météo intelligentes</title>
 </head>
+
 <body>
-<main class="meteo-container">
-    
-<div class="center box">
-<input type="text" id="cityInput" placeholder="Entrez une ville (ex: Lomé)" style="width: 100%;">
-<div class="meteo-info">   
- <div> <h3>MADRID</h3>
-   <p>la ville des joueur</p>
-    <h1>40°</h1>
-</div> 
-<div>
-    <img src="Sunny_Weather_Icon-removebg-preview.png" alt="">
+  <main class="meteo-container">
+
+    <section class="left-panel">
+      <div class="search-box">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Rechercher une ville (ex: Lomé)"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="meteo-info">
+        <div class="info-text">
+          <h3 id="city-name">--</h3>
+          <p id="weather-desc">--</p>
+          <h1 class="temps">--°</h1>
+        </div>
+
+        <div class="info-icon">
+          <img id="weatherIcon" alt="Météo" />
+        </div>
+      </div>
+
+      <div class="meteo-grid">
+        <p class="grid-title">DÉTAILS ACTUELS</p>
+
+        <div class="cards">
+          <div class="card-item">
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer-icon lucide-thermometer"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+              <span>Température</span>
+            </div>
+            <h2 class="temps">--°</h2>
+          </div>
+
+          <div class="card-item">
+            <div class="card-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-person-standing-icon lucide-person-standing"><circle cx="12" cy="5" r="1"/><path d="m9 20 3-6 3 6"/><path d="m6 8 6 2 6-2"/><path d="M12 10v4"/></svg>
+              <span>Humidité</span>
+            </div>
+            <h2 id="humidity">--%</h2>
+          </div>
+
+          <div class="card-item">
+    <div class="card-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+        <span>Vent</span>
+    </div>
+    <h2 id="windSpeed">-- km/h</h2>
 </div>
+<div class="card-item">
+    <div class="card-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>Pression</span>
+    </div>
+    <h2 id="pressure">-- hPa</h2>
 </div>
-<div class="meteo-grid" style="background-color: #202b3b; border-radius: 15px;">
-    <div><p style="margin-bottom: 10px;margin-top: 10px; font-weight: bold;">les meteo du jour</p>
- </div>
- <div class="cards">
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-    <p><b>9h00 PM</b></p> 
-    <img src="Sunny_Weather_Icon-removebg-preview.png" alt="" width="100px">
-    <h2 style="font-weight: bold;">23°</h2>
-</div>
+    <aside class="last-box">
+      <p class="aside-title">PRÉVISIONS SUR 7 JOURS</p>
+      <div id="forecast-list"> </div>
+    </aside>
 
+  </main>
 
-<div class="card">
-    <p><b>8h00 PM</b></p> 
-    <img src="Sunny_Weather_Icon-removebg-preview.png" alt="" width="100px">
-    <h2 style="font-weight: bold;">23°</h2>
-</div>
-
-
-<div class="card">
-    <p><b>5h00 PM</b></p> 
-    <img src="Sunny_Weather_Icon-removebg-preview.png" alt="" width="100px">
-    <h2 style="font-weight: bold;">20°</h2>
-</div>
-
-
-<div class="card">
-    <p><b>5h00 PM</b></p> 
-    <img src="Sunny_Weather_Icon-removebg-preview.png" alt="" width="100px">
-    <h2 style="font-weight: bold;">20°</h2>
-</div>
-
-<div class="card">
-    <p><b>4h00 PM</b></p> 
-    <img src="Sunny_Weather_Icon-removebg-preview.png" alt="" width="100px">
-    <h2 style="font-weight: bold;">13°</h2>
-</div>
-
- </div>
- </div>
-
-
-</div>
-<div class="last box" style="border-radius: 15px;background-color: #202b3b;">zk.</div>
-</main>
-
-<div class="meteo-phenomene">
+  <div class="logo-bottom">
     <h1>Orion</h1>
-</div>
+  </div>
 
-    <script src="index.js"></script>
-
+  <script src="index.js"></script>
 </body>
 </html>
