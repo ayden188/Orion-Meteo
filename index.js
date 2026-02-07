@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter" && input.value.trim() !== "") {
       const city = input.value.trim();
       getWeather(city);
-      getForcast(city); // On appelle les deux en même temps !
+      getForcast(city); 
     }
   });
 
@@ -28,18 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateUI(data) {
-    // Mise à jour Nom et Description
     const cityName = document.getElementById("city-name");
     const weatherDesc = document.getElementById("weather-desc");
     if(cityName) cityName.textContent = data.name;
     if(weatherDesc) weatherDesc.textContent = data.weather[0].description;
 
-    // Mise à jour Températures (toutes les classes .temps)
     const tempEls = document.querySelectorAll(".temps");
     const tempValue = `${Math.round(data.main.temp)}°`;
     tempEls.forEach((el) => { el.textContent = tempValue; });
-
-    // Mise à jour Détails
     const humidity = document.getElementById('humidity');
     const wind = document.getElementById('windSpeed');
     const pressure = document.getElementById('pressure');
@@ -70,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const donne = await answer.json();
 
       if (answer.ok) {
-        getForcastUi(donne); // On passe 'donne' à la fonction UI
+        getForcastUi(donne); 
       }
     } catch (error) {
       console.error("Erreur forecast :", error);
@@ -103,6 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  getWeather("Lome");
-  getForcast("Lome");
+  function citysave(city) {
+    localStorage.setItem('ville enregistre',city)
+  }
+  const savedCity=localStorage.getItem('ville enregistre')||"lome"
+
+  getWeather(savedCity);
+  getForcast(savedCity);
 });
